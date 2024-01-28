@@ -9,13 +9,10 @@ public class PriceStore
 
     public void AddPriceAtTime(Price priceChange)
     {
-        lock (_priceChanges)
-        {
-            if (priceChange.PriceInPennies == 0)
-                return;
+        if (priceChange.PriceInPennies == 0)
+            return;
 
-            _priceChanges.Add(priceChange);
-        }
+        _priceChanges.Add(priceChange);
     }
 
     public int GetAveragePricesBetweenTimes(DateTime dateFrom, DateTime dateTo)
